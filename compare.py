@@ -21,8 +21,15 @@ def sql_alchemy():
 
 def downstream_query():
     smt = sql_alchemy().limit(1)
-    print(engine.execute(smt).fetchall())
+    return smt
 
 
 if __name__ == "__main__":
-    downstream_query()
+    print(
+        engine.execute(raw_sql())
+        .fetchall()
+    )
+    # print(
+    #     engine.execute(downstream_query())
+    #     .fetchall()
+    # )
